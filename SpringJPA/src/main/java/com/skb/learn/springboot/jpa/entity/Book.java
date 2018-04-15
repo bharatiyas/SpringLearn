@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn; 
 
 @Entity
@@ -15,11 +16,13 @@ public class Book {
 
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String Id;
+	private Long Id;
 	
 	private String title;
-	private String publisher;
 	private String isbn;
+	
+	@OneToOne
+	private Publisher publisher = new Publisher();
 	
 	@ManyToMany
 	// This will create only 1 mapping table named: AUTHOR_BOOK having 2 columns = BOOK_ID, AUTHOR_ID
@@ -30,7 +33,7 @@ public class Book {
 		
 	}
 	
-	public Book(String title, String publisher, String isbn, Set<Author> authors) {
+	public Book(String title, String isbn, Publisher publisher, Set<Author> authors) {
 		super();
 		this.title = title;
 		this.publisher = publisher;
@@ -38,18 +41,18 @@ public class Book {
 		this.authors = authors;
 	}
 
-	public Book(String title, String publisher, String isbn) {
+	public Book(String title, String isbn, Publisher publisher) {
 		super();
 		this.title = title;
 		this.publisher = publisher;
 		this.isbn = isbn;
 	}
 	
-	public String getId() {
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 
@@ -61,11 +64,11 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getPublisher() {
+	public Publisher getPublisher() {
 		return publisher;
 	}
 
-	public void setPublisher(String publisher) {
+	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
 

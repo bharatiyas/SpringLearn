@@ -1,0 +1,25 @@
+<! DOCTYPE html>
+<html lang="en" mxlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charse"UTF-8"/>
+	<title>Learning Spring and Spring Boot</title>
+</head>
+<body>
+	<h1>Your favorite authors!!</h1>
+	
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+		</tr>
+		<!-- th:each is used for any thing which is iterable in Java -->
+		<tr th:each="author : ${authors}">
+			<!-- Under the cover thymeleaf will execute the getter methods on the object for '.' notation -->
+			<td th:text="${author.Id}">123</td>
+			<td th:text="${author.firstName}">123</td>
+			<td th:text="${author.lastName}">Title</td>
+			
+		</tr>
+	</table>
+</body>
+</html>
