@@ -4,17 +4,23 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-@Service
-@Primary
-// We define an array with two profiles en and default. “default” profile is active when other profiles are not active.
-@Profile({"en", "default"})
+/**
+ * Created by jt on 5/24/17.
+ */
+//@Service
+//@Primary
+//@Profile({"en", "default"})
 public class PrimaryGreetingService implements GreetingService {
 
-	public static final String HELLO_FROM_PRIMARY = "Hello from PrimaryGreetingService!!";
+    private GreetingRepository greetingRepository;
+
+    public PrimaryGreetingService(GreetingRepository greetingRepository) {
+		super();
+		this.greetingRepository = greetingRepository;
+	}
 
 	@Override
-	public String greet() {
-		// TODO Auto-generated method stub
-		return HELLO_FROM_PRIMARY;
-	}
+    public String greet() {
+        return greetingRepository.getEnglishGreeting();
+    }
 }

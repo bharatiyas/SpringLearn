@@ -3,11 +3,13 @@ package com.skb.learn.spring.di;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.skb.learn.spring.di.controller.ConstructorInjectedController;
 import com.skb.learn.spring.di.controller.MyController;
 import com.skb.learn.spring.di.controller.PropertyInjectedController;
 import com.skb.learn.spring.di.controller.SetterInjectedController;
+import com.skb.learn.spring.di.datasource.FakeDataSource;
 
 @SpringBootApplication
 public class SpringDiApplication {
@@ -26,5 +28,9 @@ public class SpringDiApplication {
 		System.out.println("PropertyInjectedController - " + ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+		
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		
+		System.out.println("DB URL = " + fakeDataSource.getUrl());
 	}
 }
