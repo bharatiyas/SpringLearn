@@ -31,6 +31,6 @@ public class SpringDiApplication {
 		
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		
-		System.out.println("DB URL = " + fakeDataSource.getUrl());
+		System.out.println("DB Password = " + fakeDataSource.getPassword());
 	}
 }
