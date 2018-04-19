@@ -9,7 +9,10 @@ import com.skb.learn.spring.di.controller.ConstructorInjectedController;
 import com.skb.learn.spring.di.controller.MyController;
 import com.skb.learn.spring.di.controller.PropertyInjectedController;
 import com.skb.learn.spring.di.controller.SetterInjectedController;
-import com.skb.learn.spring.di.datasource.FakeDataSource;
+import com.skb.learn.spring.di.property.CustomPropsInApplicationProperties;
+import com.skb.learn.spring.di.property.CustomPropsInApplicationYaml;
+import com.skb.learn.spring.di.property.FakeDataSource;
+import com.skb.learn.spring.di.property.FakeJmsBroker;
 
 @SpringBootApplication
 public class SpringDiApplication {
@@ -25,12 +28,21 @@ public class SpringDiApplication {
 		
 		controller.sayHello();
 		
-		System.out.println("PropertyInjectedController - " + ctx.getBean(PropertyInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
+		//System.out.println("PropertyInjectedController - " + ctx.getBean(PropertyInjectedController.class).sayHello());
+		//System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
 		
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
-		
 		System.out.println("DB Password = " + fakeDataSource.getPassword());
+		
+		FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+		System.out.println("JMS Password = " + fakeJmsBroker.getPassword());
+		
+		CustomPropsInApplicationProperties customProps = ctx.getBean(CustomPropsInApplicationProperties.class);
+		System.out.println("First Name = " + customProps.getFirstName());
+		
+		CustomPropsInApplicationYaml customPropsYaml = ctx.getBean(CustomPropsInApplicationYaml.class);
+		System.out.println("YAML First Name = " + customPropsYaml.getFirstName());
+		
 	}
 }

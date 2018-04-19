@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.skb.learn.spring.di.service.GreetingServiceImpl;
 
 // This is just to demonstrate that this is not the way it should be done
-@Component
+//@Component
 public class PropertyInjectedController {
 
 	@Autowired

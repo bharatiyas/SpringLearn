@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.skb.learn.spring.di.service.GreetingService;
 
-@Component
+//@Component
 public class SetterInjectedController {
 	
 	private GreetingService greetingService;
