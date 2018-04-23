@@ -5,6 +5,9 @@ public class Department {
 	private Long departmentId;
 	private String name;
 	
+	public Department() {
+		super();
+	}
 	
 	public Department(Long departmentId, String name) {
 		super();

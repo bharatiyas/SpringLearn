@@ -1,12 +1,22 @@
 package com.skb.learn.swagger.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class Employee {
 
+	@ApiModelProperty(notes = "Employee Id")
 	private Long employeeId;
+	
+	@ApiModelProperty(notes = "Employee First Name")
 	private String firstName;
+	
+	@ApiModelProperty(notes = "Employee Last Name")
 	private String lastName;
 	
-	
+	public Employee() {
+		super();
+	}
+
 	public Employee(Long employeeId, String firstName, String lastName) {
 		super();
 		this.employeeId = employeeId;

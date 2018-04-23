@@ -23,7 +23,9 @@ public class SwaggerConfig {
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
+				// Packages that need to be scanned for API
 				.apis(RequestHandlerSelectors.basePackage("com.skb.learn.swagger.controller"))
+				// Endpoint patterns which need to be exposed
 				.paths(regex("/swaggerapp.*"))
 				.build()
 				.apiInfo(metaInformation());

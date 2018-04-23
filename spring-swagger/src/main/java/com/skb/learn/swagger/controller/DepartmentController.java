@@ -14,10 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skb.learn.swagger.model.Department;
 import com.skb.learn.swagger.model.ResponseStatus;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/swaggerapp/department")
+@Api(value = "Department API", tags = {"Department API"})
 public class DepartmentController {
 
+	
 	@GetMapping("/")
 	public List<Department> getDepartment() {
 		
