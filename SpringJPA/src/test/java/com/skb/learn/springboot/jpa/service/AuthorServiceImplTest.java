@@ -18,11 +18,11 @@ import com.skb.learn.springboot.jpa.repository.AuthorRepository;
 
 public class AuthorServiceImplTest {
 
-	AuthorServiceImpl authorServiceImpl;
+	private AuthorServiceImpl authorServiceImpl;
 	
 	// Mock the dependency of AuthorServiceImpl
 	@Mock
-	AuthorRepository authorRepository;
+	private AuthorRepository authorRepository;
 	
 	//@Mock
 	//Author author;
