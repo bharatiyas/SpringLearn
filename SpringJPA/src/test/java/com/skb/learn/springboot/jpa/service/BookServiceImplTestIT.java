@@ -10,8 +10,11 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.skb.learn.springboot.jpa.entity.Author;
 import com.skb.learn.springboot.jpa.entity.Book;
@@ -19,7 +22,9 @@ import com.skb.learn.springboot.jpa.entity.Publisher;
 import com.skb.learn.springboot.jpa.repository.BookRepository;
 import com.skb.learn.springboot.jpa.repository.BookRepository;
 
-public class BookServiceImplTest {
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class BookServiceImplTestIT {
 
 	private BookServiceImpl bookServiceImpl;
 	
